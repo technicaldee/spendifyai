@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "spendifyai"
+version = "0.1.0"
+description = ""
+authors = ["Edidiong Udoh <gisthive@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+[tool.poetry.group.dev.dependencies]
+setuptools = "^69.5.1"
+
