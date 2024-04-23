@@ -143,7 +143,7 @@ export default function Home() {
   return (
     <div className="flex w-full h-full flex-col justify-between items-center">
       {isConnected ? (
-        <div className="h-full">
+        <>
           <div className="flex w-full h-full justify-center items-center space-x-2">
             <p className="font-semibold">{balance.data?.symbol}</p>
             <div>
@@ -434,7 +434,7 @@ export default function Home() {
               </form>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <div>Please connect a wallet to get started</div>
       )}
