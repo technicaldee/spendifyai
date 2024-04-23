@@ -83,7 +83,7 @@ export default function Home() {
               "you are an agent in a crypto dapp. only respond to crypto related terms no matter what. only answer as a crypto agent and respectfully ignore any none crypto requests under every circumstance. Here are the users recent transactions in case they ask for a particular day or a range of days: " +
               JSON.stringify(transactions) +
               ". The user balance is " +
-              balance.data?.value.toString() +
+              balance.data?.formatted.toString() +
               " and the symbol of the wallet is " +
               balance.data?.symbol,
           },
@@ -151,7 +151,7 @@ export default function Home() {
             <p className="font-semibold">{balance.data?.symbol}</p>
             <div>
               <p className="text-3xl text-center font-semibold">
-                {balance.data?.value.toString()}
+                {balance.data?.formatted}
               </p>
               <p className="text-sm text-center font-extralight">
                 Total Balance
@@ -172,9 +172,9 @@ export default function Home() {
               </svg>
             </button>
           </div>
-          <div className="w-screen h-80 md:h-[350px] md:w-[1200px] lg:h-[350px] lg:w-[1200px] relative mt-5">
-            <MainContainer>
-              <ChatContainer>
+          <div className="w-full z-10 h-80 md:h-[350px] md:w-[1200px] grow-0 lg:h-[350px] lg:w-[1200px] relative mt-5">
+            <MainContainer className="z-10">
+              <ChatContainer className="z-10">
                 <MessageList
                   scrollBehavior="smooth"
                   typingIndicator={
@@ -182,20 +182,26 @@ export default function Home() {
                       <TypingIndicator content="Spendify is typing" />
                     ) : null
                   }
+                  className="bg-transparent"
                 >
                   {messages.map((message, i) => {
                     console.log(message);
                     /* @ts-ignore */
-                    return <Message key={i} model={message} />;
+                    return <Message className="z-0" key={i} model={message} />;
                   })}
                 </MessageList>
               </ChatContainer>
             </MainContainer>
           </div>
-          <Modal isOpen={showModal} contentLabel="Minimal Modal Example">
+          <Modal
+            overlayClassName={"z-50"}
+            portalClassName="z-50"
+            isOpen={showModal}
+            contentLabel="Minimal Modal Example"
+          >
             <button onClick={handleCloseModal}>Close </button>
             <h2 className="p-2 font-semibold text-2xl">Gain Tips On...</h2>
-            <div className="grid grid-cols-3 gap-4 p-2">
+            <div className="z-50 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 p-2">
               <div
                 onClick={() => {
                   setPrompt(
@@ -373,8 +379,7 @@ export default function Home() {
                 <span>How much did i spend on (mention day or time)</span>
               </button>
               <button
-                disabled
-                onClick={() => setPrompt("New transaction: ")}
+                onClick={() => setPrompt("What is my balance")}
                 className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
               >
                 <svg
@@ -390,7 +395,7 @@ export default function Home() {
                   />
                 </svg>
 
-                <span>New Transaction (Coming soon)</span>
+                <span>My balance</span>
               </button>
               <button
                 onClick={() => setPrompt("How do i earn with celo ")}
