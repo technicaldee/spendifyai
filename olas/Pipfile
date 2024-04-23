@@ -9,6 +9,7 @@ tiktoken = "*"
 mech-client = "*"
 poetry = "*"
 open-autonomy = "*"
+flask = "*"
 
 [dev-packages]
 
