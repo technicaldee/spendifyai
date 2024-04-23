@@ -87,8 +87,7 @@ export default function Home() {
         {
           method: "POST",
           headers: {
-            Authorization:
-              "Bearer sk-proj-MsGNQICGxI1yvWwyUzaiT3BlbkFJrxeQUlJBgfOUWmJywRRS",
+            Authorization: "Bearer " + process.env.OPENAI_API_KEY,
             "Content-Type": "application/json",
           },
           body: JSON.stringify(apiRequestBody),
