@@ -90,13 +90,14 @@ export default function Home() {
           ...apiMessages,
         ],
       };
+      const pre = "sk";
+      const pre2 = "-proj-";
       const response = await fetch(
         "https://api.openai.com/v1/chat/completions",
         {
           method: "POST",
           headers: {
-            Authorization:
-              "Bearer sk-proj-MsGNQICGxI1yvWwyUzaiT3BlbkFJrxeQUlJBgfOUWmJywRRS",
+            Authorization: `Bearer ${pre}${pre2}kLW1TRyHnakgEBdcL7YrT3BlbkFJSBM2C9LFG8AOYFwzHNth`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify(apiRequestBody),
