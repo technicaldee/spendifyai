@@ -95,7 +95,8 @@ export default function Home() {
         {
           method: "POST",
           headers: {
-            Authorization: "Bearer " + process.env.REACT_APP_OPENAI_API_KEY,
+            Authorization:
+              "Bearer sk-proj-MsGNQICGxI1yvWwyUzaiT3BlbkFJrxeQUlJBgfOUWmJywRRS",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(apiRequestBody),
@@ -145,6 +146,149 @@ export default function Home() {
 
   return (
     <div className="flex w-full h-full flex-col justify-between items-center">
+      <Modal
+        overlayClassName={"z-50"}
+        portalClassName="z-50"
+        isOpen={showModal}
+        contentLabel="Minimal Modal Example"
+      >
+        <button onClick={handleCloseModal}>Close </button>
+        <h2 className="p-2 font-semibold text-2xl">Gain Tips On...</h2>
+        <div className="z-50 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 p-2">
+          <div
+            onClick={() => {
+              setPrompt(
+                "Teach me how Celo enables fast and low-cost cross-border payments using blockchain technology, making it accessible to people globally. "
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Cross-Border Payments with Celo
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Help me understand the concept of stablecoins and how they provide stability by being pegged to a stable asset like the US Dollar, and how Celo Dollar (cUSD) fits into this ecosystem"
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Stablecoins
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Help me understand the world of decentralized finance on Celo and how it offers opportunities for earning yield, lending, borrowing, and trading without intermediaries."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Decentralized Finance (DeFi)
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Help me understand Celo's focus on mobile-first design and accessibility, allowing users to access financial services directly from their smartphones."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Mobile-first Approach
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Celo's community-driven governance model, where token holders participate in decision-making processes such as protocol upgrades and funding proposals."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Community Governance
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Explore the features and functionalities of MiniPay, a user-friendly mobile wallet app built on Celo that allows users to send, receive, and store cryptocurrencies easily."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            MiniPay App
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Explore the role of smart contracts on Celo and how they enable programmable and automated transactions, powering various DeFi applications and services."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Smart Contracts
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Explore the  importance of oracles and price feeds in decentralized finance ecosystems, providing accurate real-time data for smart contract execution."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Oracles and Price Feeds
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Learn about tokenomics, including token supply, distribution mechanisms, incentives, and how they impact the overall ecosystem and network security."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Tokenomics
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Explore the privacy and security features of Celo, such as cryptographic techniques and privacy-preserving technologies, ensuring secure and private transactions."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Privacy and Security
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Discover how Celo aims to achieve interoperability with other blockchain networks and traditional financial systems, fostering greater connectivity and usability."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Interoperability
+          </div>
+          <div
+            onClick={() => {
+              setPrompt(
+                "Stay informed about the evolving regulatory landscape for cryptocurrencies, understanding compliance requirements, and how projects like Celo navigate these challenges."
+              );
+              handleCloseModal();
+            }}
+            className="rounded-lg border cursor-pointer hover:bg-gray-200  flex p-2 border-black"
+          >
+            Regulatory Landscape
+          </div>
+        </div>
+      </Modal>
       {isConnected ? (
         <div className="h-full">
           <div className="flex w-full h-full justify-center items-center space-x-2">
