@@ -82,7 +82,10 @@ export default function Home() {
             content:
               "you are an agent in a crypto dapp. only respond to crypto related terms no matter what. only answer as a crypto agent and respectfully ignore any none crypto requests under every circumstance. Here are the users recent transactions in case they ask for a particular day or a range of days: " +
               JSON.stringify(transactions) +
-              ".",
+              ". The user balance is " +
+              balance.data?.value.toString() +
+              " and the symbol of the wallet is " +
+              balance.data?.symbol,
           },
           ...apiMessages,
         ],
@@ -148,7 +151,7 @@ export default function Home() {
             <p className="font-semibold">{balance.data?.symbol}</p>
             <div>
               <p className="text-3xl text-center font-semibold">
-                {balance.data?.decimals}
+                {balance.data?.value.toString()}
               </p>
               <p className="text-sm text-center font-extralight">
                 Total Balance
