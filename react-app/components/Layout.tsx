@@ -13,7 +13,6 @@ const Layout: FC<Props> = ({ children }) => {
         <div className="py-16 w-full h-full mx-auto space-y-8 sm:px-6 lg:px-8">
           {children}
         </div>
-        <Footer />
       </div>
     </>
   );
