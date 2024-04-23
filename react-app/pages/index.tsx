@@ -1,3 +1,5 @@
+//@ts-ignore
+
 import { useEffect, useState } from "react";
 import { useAccount, useBalance } from "wagmi";
 import axios from "axios";
@@ -27,6 +29,7 @@ export default function Home() {
       message: "Hello... Ask me anything about your finances!",
       sender: "spendify",
       direction: "incoming",
+      position: "normal",
     },
   ]);
 
@@ -35,6 +38,7 @@ export default function Home() {
       message: prompt,
       direction: "outgoing",
       sender: "user",
+      position: "normal",
     };
 
     setMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -49,6 +53,7 @@ export default function Home() {
           message: content,
           sender: "spendify",
           direction: "incoming",
+          position: "",
         };
         setMessages((prevMessages) => [...prevMessages, chatGPTResponse]);
       }
@@ -177,6 +182,7 @@ export default function Home() {
                 >
                   {messages.map((message, i) => {
                     console.log(message);
+                    /* @ts-ignore */
                     return <Message key={i} model={message} />;
                   })}
                 </MessageList>
